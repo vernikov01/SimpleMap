@@ -49,8 +49,8 @@ class NmapHandler:
         command = f"-A -T2 -sV {target}"
         self.execute_command(command)
 
-    def silent_scan(self, target):
-        command = f"-sV -sT -Pn {target}"
+    def silent_scan(self, target): # make mention of timeframes 
+        command = f"-sV -sT -Pn {target}" 
         self.execute_command(command)
 
     def silent_vulnscan(self, target):
@@ -58,25 +58,25 @@ class NmapHandler:
         self.execute_command(command)
 
     def udp_scan(self, target):
-        command = f"-sU -p- --randomize-hosts {target}" #implement
+        command = f"-sU -p- --randomize-hosts {target}" #implement as UDP
         self.execute_command(command)
 
     def fin_scan(self, target):
-        command = f"-sF -p- --randomize-hosts {target}" #implement
+        command = f"-sF -p- --randomize-hosts {target}" #implement as FIN
         self.execute_command(command)
 
     def null_scan(self, target):
-        command = f"-sN -p- --randomize-hosts {target}" #implement
+        command = f"-sN -p- --randomize-hosts {target}" #implement as NULL
         self.execute_command(command)
 
     def xmas_scan(self, target):
-        command = f"-sX -p- --randomize-hosts {target}" #implement
+        command = f"-sX -p- --randomize-hosts {target}" #implement as XMAS
         self.execute_command(command)
 
     def vulnassess_scan(self, target):
-        command = f"-sV -sC -p- --randomize-hosts {target}" #implement
+        command = f"-sV -sC -p- --randomize-hosts {target}" #implement vulncheck
         self.execute_command(command)
 
     def service_os_scan(self, target):
-        command = f"-sV -O -p- --randomize-hosts {target}" #implement
+        command = f"-sV -O -p- --randomize-hosts {target}" #implement serviceos
         self.execute_command(command)
