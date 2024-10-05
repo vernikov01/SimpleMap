@@ -28,13 +28,13 @@ class NmapHandler:
 {self.BOLD}{self.CYAN}Available Commands:{self.RESET}
 
 +-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} scan {self.RESET}<target>       {self.YELLOW}Perform a basic scan on the target.{self.RESET}
+|{self.GREEN} {self.BOLD} basic {self.RESET}<target>       {self.YELLOW}Perform a basic scan on the target.{self.RESET}
 +-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} advanced {self.RESET}<target>   {self.YELLOW}Perform an advanced but aggressive scan.{self.RESET}
+|{self.GREEN} {self.BOLD} aggressive {self.RESET}<target>   {self.YELLOW}Perform an advanced but aggressive scan.{self.RESET}
 +-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} silent {self.RESET}<target>     {self.YELLOW}Perform a quiet scan, which can take longer.{self.RESET}
+|{self.GREEN} {self.BOLD} standardsilent {self.RESET}<target>     {self.YELLOW}Perform a quiet scan, which can take longer.{self.RESET}
 +-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} silentvuln {self.RESET}<target> {self.YELLOW}Perform a quiet scan which checks for vulnerabilities.{self.RESET}
+|{self.GREEN} {self.BOLD} vulnsilent {self.RESET}<target> {self.YELLOW}Perform a quiet scan which checks for vulnerabilities.{self.RESET}
 +-------------------------------------------------------------------------------+
 |{self.GREEN} {self.BOLD} ping {self.RESET}<target>       {self.YELLOW}Check to see if the target IP is responsive.{self.RESET}
 +-------------------------------------------------------------------------------+
