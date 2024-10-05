@@ -14,7 +14,8 @@ class NmapHandler:
     def execute_command(self, command):
         args = command.split()
         try:
-            result = subprocess.run(['nmap'] + args, capture_output=True, text=True)
+            
+            result = subprocess.run(['nmap'] + args, capture_output=True, text=True )
             if result.returncode != 0:
                 print(f"Error executing command: {result.stderr}")
             else:
@@ -39,12 +40,11 @@ class NmapHandler:
 +-------------------------------------------------------------------------------+
 
 +-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} help {self.RESET}               {self.YELLOW}Show this help message.{self.RESET}
+|{self.GREEN} {self.BOLD} help {self.RESET}                       {self.YELLOW}Show this help message.{self.RESET}
 +-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} exit {self.RESET}               {self.YELLOW}Exit the smap shell.{self.RESET}
+|{self.GREEN} {self.BOLD} exit {self.RESET}                       {self.YELLOW}Exit the smap shell.{self.RESET}
 +-------------------------------------------------------------------------------+  
     """
-        
     def advanced_scan(self, target):
         command = f"-A -T2 -sV {target}"
         self.execute_command(command)
@@ -55,4 +55,28 @@ class NmapHandler:
 
     def silent_vulnscan(self, target):
         command = f"-sV -sT -Pn --script vuln {target}"
+        self.execute_command(command)
+
+    def udp_scan(self, target):
+        command = f"-sU -p- --randomize-hosts {target}" #implement
+        self.execute_command(command)
+
+    def fin_scan(self, target):
+        command = f"-sF -p- --randomize-hosts {target}" #implement
+        self.execute_command(command)
+
+    def null_scan(self, target):
+        command = f"-sN -p- --randomize-hosts {target}" #implement
+        self.execute_command(command)
+
+    def xmas_scan(self, target):
+        command = f"-sX -p- --randomize-hosts {target}" #implement
+        self.execute_command(command)
+
+    def vulnassess_scan(self, target):
+        command = f"-sV -sC -p- --randomize-hosts {target}" #implement
+        self.execute_command(command)
+
+    def service_os_scan(self, target):
+        command = f"-sV -O -p- --randomize-hosts {target}" #implement
         self.execute_command(command)
