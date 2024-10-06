@@ -4,8 +4,10 @@ import subprocess
 import colours as c
 from map import NmapHandler
 from rich import print as rprint
-from rich.panel import Panel
-
+from rich.panel import Panel 
+from rich.console import Console
+def load():
+    time.sleep(7.25)
 
 def main():
     time.sleep(1)
@@ -32,7 +34,7 @@ def nmapscripts():
             print(helptable())
         elif command.startswith("vulnscan "):
             target = command.split(" ", 1)[1]
-            print("\nScanning... Please wait..\n") #animate this
+            print("\nScanning... Please wait..\n") #animate loading dots
             nmap_handler.vulnassess_scan(target)
 
         elif command.startswith("basic "):
@@ -69,10 +71,18 @@ def nmapscripts():
             print(f"\n{c.RED}{c.BOLD}Unknown command. Type 'help' for a list of commands.{c.RESET}\n")
 
 
-    
+ 
 
 if __name__ == "__main__":
     subprocess.run('clear')
+    console = Console() 
+    with console.status(
+
+    "Loading SimpleMap. ", spinner="material"
+
+):
+        load()
+    
     main()
     nmapscripts()
     
