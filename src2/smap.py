@@ -66,6 +66,12 @@ def nmapscripts():
             target = command.split(" ", 1)[1]
             print("\n")
             nmap_handler.service_os_scan(target)
+
+        elif command.startswith("ping "):
+            target = command.split(" ", 1)[1]
+            print("\n")
+            nmap_handler.execute_command(f"-sP --packet-trace {target}")
+
         else:
             time.sleep(1)
             print(f"\n{c.RED}{c.BOLD}Unknown command. Type 'help' for a list of commands.{c.RESET}\n")
