@@ -34,37 +34,37 @@ class NmapHandler:
 
       
     def advanced_scan(self, target):
-        command = f"-A -T2 -O {target}"
+        command = f"-A -T2 -O -vv --packet-trace {target}"
         self.execute_command(command)
 
     def silent_scan(self, target): # make mention of timeframes 
-        command = f"-sV -sT -Pn {target}" 
+        command = f"-sV -sT -Pn -vv --packet-trace {target}" 
         self.execute_command(command)
 
     def silent_vulnscan(self, target):
-        command = f"-sV -sT -Pn --script vuln {target}"
+        command = f"-sV -sT -Pn --script vuln -vv --packet-trace {target}"
         self.execute_command(command)
 
     def udp_scan(self, target):
-        command = f"-sU -p- --randomize-hosts {target}" #implement as UDP
+        command = f"-sU -p- --randomize-hosts -vv --packet-trace {target}" #implement as UDP
         self.execute_command(command)
 
     def fin_scan(self, target):
-        command = f"-sF -T2 -p- --randomize-hosts {target}" #implement as FIN
+        command = f"-sF -T2 -p- --randomize-hosts -vv --packet-trace {target}" #implement as FIN
         self.execute_command(command)
 
     def null_scan(self, target):
-        command = f"-sN -T2 -p- --randomize-hosts {target}" #implement as NULL
+        command = f"-sN -T2 -p- --randomize-hosts -vv --packet-trace {target}" #implement as NULL
         self.execute_command(command)
 
     def xmas_scan(self, target):
-        command = f"-sX -T2 -p- --randomize-hosts {target}" #implement as XMAS
+        command = f"-sX -T2 -p- --randomize-hosts -vv --packet-trace {target}" #implement as XMAS
         self.execute_command(command)
 
     def vulnassess_scan(self, target):
-        command = f"-sV -sC -p- --randomize-hosts {target}" #implement vulncheck
+        command = f"-sV -sC -p- --randomize-hosts -vv --packet-trace {target}" #implement vulncheck
         self.execute_command(command)
 
     def service_os_scan(self, target):
-        command = f"-sV -O -p- --randomize-hosts {target}" #implement serviceos
+        command = f"-sV -O -p- --randomize-hosts -vv --packet-trace {target}" #implement serviceos
         self.execute_command(command)

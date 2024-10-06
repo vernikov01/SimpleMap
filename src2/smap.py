@@ -22,7 +22,7 @@ from map import NmapHandler
 def nmapscripts():
     while True:
         nmap_handler = NmapHandler()
-        command = input(f"{c.BOLD}{c.GREEN}SimpleMap-#:{c.RESET} ").strip()
+        command = input(f"{c.BOLD}{c.GREEN}SimpleMap-1.0.2-#:{c.RESET} ").strip()
 
         if command.lower() in ('exit', 'quit'):
             time.sleep(0.5)
