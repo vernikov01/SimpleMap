@@ -13,8 +13,8 @@ def main():
     time.sleep(1.25)
     print("\n")
 
-import colours as c
-import time 
+    print("Type 'help' for a List of Commands.")
+
 from help import helptable
 from map import NmapHandler 
 def nmapscripts():
@@ -30,7 +30,7 @@ def nmapscripts():
 
         elif command.lower() == 'help':
             print(helptable())
-        elif command.startswith("silentvuln "):
+        elif command.startswith("vulnscan "):
             target = command.split(" ", 1)[1]
             print("\nScanning... Please wait..\n") #animate this
             nmap_handler.vulnassess_scan(target)
@@ -40,21 +40,30 @@ def nmapscripts():
             print("\nScanning... Please wait..\n")
             nmap_handler.silent_scan(target)
 
-        elif command.startswith("silentvuln "):
+        elif command.startswith("UDP "):
             target = command.split(" ", 1)[1]
             print("\nScanning... Please wait..\n")
+            nmap_handler.udp_scan(target)
+
+        elif command.startswith("FIN "):
+            target = command.split(" ", 1)[1]
+            print("\n")
+            nmap_handler.udp_scan(target)
+
+        elif command.startswith("XMAS "):
+            target = command.split(" ", 1)[1]
+            print("\n")
+            nmap_handler.xmas_scan(target)
+
+        elif command.startswith("silentvuln "):
+            target = command.split(" ", 1)[1]
+            print("\n")
             nmap_handler.silent_vulnscan(target)
 
-        elif command.startswith("ping "):
+        elif command.startswith("OS "):
             target = command.split(" ", 1)[1]
             print("\n")
-            nmap_handler.execute_command(f"-A T2 -O --script=default --randomize-hosts {target}")
-
-        elif command.startswith("ping "):
-            target = command.split(" ", 1)[1]
-            print("\n")
-            nmap_handler.execute_command(f"{target}")
-
+            nmap_handler.service_os_scan(target)
         else:
             time.sleep(1)
             print(f"\n{c.RED}{c.BOLD}Unknown command. Type 'help' for a list of commands.{c.RESET}\n")

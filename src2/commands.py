@@ -15,7 +15,7 @@ def nmapscripts():
 
         elif command.lower() == 'help':
             print(helptable())
-        elif command.startswith("silentvuln "):
+        elif command.startswith("vulnscan "):
             target = command.split(" ", 1)[1]
             print("\nScanning... Please wait..\n") #animate this
             nmap_handler.vulnassess_scan(target)
@@ -35,10 +35,15 @@ def nmapscripts():
             print("\n")
             nmap_handler.execute_command(f"-A T2 -O --script=default --randomize-hosts {target}")
 
-        elif command.startswith("ping "):
+        elif command.startswith("udp "):
             target = command.split(" ", 1)[1]
             print("\n")
-            nmap_handler.execute_command(f"{target}")
+            nmap_handler.execute_command(f"-sU -p- --randomize-hosts {target}")
+
+        elif command.startswith("fin "):
+            target = command.split(" ", 1)[1]
+            print("\nScanning... Please wait..\n")
+            nmap_handler.fin_scan(target)
 
         else:
             time.sleep(1)

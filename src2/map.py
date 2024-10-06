@@ -3,6 +3,7 @@ from rich import print as rprint
 from rich.layout import Layout
 from help import helptable
 
+
 class NmapHandler:
 
     RESET = "\033[0m"
@@ -13,6 +14,8 @@ class NmapHandler:
     MAGENTA = "\033[35m"
     CYAN = "\033[36m"
     BOLD = "\033[1m"
+
+
 
     def execute_command(self, command):
         args = command.split()
