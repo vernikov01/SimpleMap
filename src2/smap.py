@@ -2,7 +2,7 @@ import sys
 import time
 import subprocess
 import colours as c
-from basics import run_basics
+import commands
 from rich import print as rprint
 from rich.panel import Panel
 
@@ -18,4 +18,4 @@ def main():
 if __name__ == "__main__":
     subprocess.run('clear')
     main()
-    run_basics()
+    commands.NmapHandler()

@@ -1,10 +1,8 @@
-import subprocess
-import sys
-from networkenum import NmapHandler
 import colours as c
 import time 
-from helpmenu import helptable
-def run_basics():
+from help import helptable
+from map import NmapHandler 
+def nmapscripts():
     while True:
         nmap_handler = NmapHandler()
         command = input(f"{c.BOLD}{c.GREEN}SimpleMap-#:{c.RESET} ").strip()
@@ -22,7 +20,7 @@ def run_basics():
             print("\nScanning... Please wait..\n") #animate this
             nmap_handler.vulnassess_scan(target)
 
-        elif command.startswith("silent "):
+        elif command.startswith("basic "):
             target = command.split(" ", 1)[1]
             print("\nScanning... Please wait..\n")
             nmap_handler.silent_scan(target)

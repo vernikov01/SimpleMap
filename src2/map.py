@@ -1,7 +1,7 @@
 import subprocess
 from rich import print as rprint
 from rich.layout import Layout
-from helpmenu import helptable
+from help import helptable
 
 class NmapHandler:
 
