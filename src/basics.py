@@ -1,9 +1,9 @@
 import subprocess
 import sys
-from . import networkenum as NmapHandler
-from . import colours as c
+from networkenum import NmapHandler
+import colours as c
 import time 
-
+from helpmenu import helptable
 
 def run_basics():
     while True:

@@ -1,11 +1,11 @@
 import sys
-from networkenum import NmapHandler
 import time
 import subprocess
 import colours as c
 from basics import run_basics
 from rich import print as rprint
 from rich.panel import Panel
+from helpmenu import helptable
 
 
 def main():

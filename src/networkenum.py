@@ -1,7 +1,7 @@
 import subprocess
 from rich import print as rprint
 from rich.layout import Layout
-
+from helpmenu import helptable
 
 class NmapHandler:
 
@@ -18,7 +18,7 @@ class NmapHandler:
         args = command.split()
         try:
             
-            result = subprocess.run(['nmap'] + args, capture_output=True, text=True)
+            result = subprocess.Popen(['nmap'] + args, capture_output=True, text=True)
             if result.returncode != 0:
                 print(f"Error executing command make sure command is correct: {result.stderr}")
             else:
@@ -27,38 +27,9 @@ class NmapHandler:
             print(f"Error executing command: {e}")
 
     def get_help(self):
-        layout = Layout()
-        rprint(layout)
-        layout.split_column(
-        Layout(name="basic"),
-        Layout(name="aggressive"),
-        Layout(name="UDP"),
-        Layout(name="FIN"),
-        Layout(name="NULL"),
-)
-        rprint(layout)
+        helptable()
 
-        return f"""
-{self.BOLD}{self.CYAN}Available Commands:{self.RESET}
-
-+-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} basic {self.RESET}<target>       {self.YELLOW}Perform a basic scan on the target.{self.RESET}
-+-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} aggressive {self.RESET}<target>   {self.YELLOW}Perform an advanced but aggressive scan.{self.RESET}
-+-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} standardsilent {self.RESET}<target>     {self.YELLOW}Perform a quiet scan, which can take longer.{self.RESET}
-+-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} vulnsilent {self.RESET}<target> {self.YELLOW}Perform a quiet scan which checks for vulnerabilities.{self.RESET}
-+-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} ping {self.RESET}<target>       {self.YELLOW}Check to see if the target IP is responsive.{self.RESET}
-+-------------------------------------------------------------------------------+
-
-+-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} help {self.RESET}                       {self.YELLOW}Show this help message.{self.RESET}
-+-------------------------------------------------------------------------------+
-|{self.GREEN} {self.BOLD} exit {self.RESET}                       {self.YELLOW}Exit the smap shell.{self.RESET}
-+-------------------------------------------------------------------------------+  
-    """
+      
     def advanced_scan(self, target):
         command = f"-A -T2 -O {target}"
         self.execute_command(command)
