@@ -20,7 +20,7 @@ class NmapHandler:
             
             result = subprocess.run(['nmap'] + args, capture_output=True, text=True)
             if result.returncode != 0:
-                print(f"Error executing command: {result.stderr}")
+                print(f"Error executing command make sure command is correct: {result.stderr}")
             else:
                 print(result.stdout)
         except Exception as e:
@@ -60,7 +60,7 @@ class NmapHandler:
 +-------------------------------------------------------------------------------+  
     """
     def advanced_scan(self, target):
-        command = f"-A -T2 -sV {target}"
+        command = f"-A -T2 -O {target}"
         self.execute_command(command)
 
     def silent_scan(self, target): # make mention of timeframes 
@@ -76,15 +76,15 @@ class NmapHandler:
         self.execute_command(command)
 
     def fin_scan(self, target):
-        command = f"-sF -p- --randomize-hosts {target}" #implement as FIN
+        command = f"-sF -T2 -p- --randomize-hosts {target}" #implement as FIN
         self.execute_command(command)
 
     def null_scan(self, target):
-        command = f"-sN -p- --randomize-hosts {target}" #implement as NULL
+        command = f"-sN -T2 -p- --randomize-hosts {target}" #implement as NULL
         self.execute_command(command)
 
     def xmas_scan(self, target):
-        command = f"-sX -p- --randomize-hosts {target}" #implement as XMAS
+        command = f"-sX -T2 -p- --randomize-hosts {target}" #implement as XMAS
         self.execute_command(command)
 
     def vulnassess_scan(self, target):

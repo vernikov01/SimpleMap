@@ -1,7 +1,7 @@
 import subprocess
 import sys
-from networkenum import NmapHandler
-import colours as c
+from . import networkenum as NmapHandler
+from . import colours as c
 import time 
 
 
@@ -18,10 +18,10 @@ def run_basics():
 
         elif command.lower() == 'help':
             print(nmap_handler.get_help())
-        elif command.startswith("advanced "):
+        elif command.startswith("silentvuln "):
             target = command.split(" ", 1)[1]
             print("\nScanning... Please wait..\n")
-            nmap_handler.advanced_scan(target)
+            nmap_handler.vulnassess_scan(target)
 
         elif command.startswith("silent "):
             target = command.split(" ", 1)[1]
@@ -37,6 +37,12 @@ def run_basics():
             target = command.split(" ", 1)[1]
             print("\n")
             nmap_handler.execute_command(f"-sP {target}")
+
+        elif command.startswith("ping "):
+            target = command.split(" ", 1)[1]
+            print("\n")
+            nmap_handler.execute_command(f"{target}")
+
         else:
             time.sleep(1)
             print(f"\n{c.RED}{c.BOLD}Unknown command. Type 'help' for a list of commands.{c.RESET}\n")
