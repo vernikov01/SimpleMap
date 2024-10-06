@@ -16,6 +16,6 @@ sudo cp src2/colours.py /etc/smap
 sudo cp src2/commands.py /etc/smap
 sudo cp src2/config.py /etc/smap
 echo "#!/bin/bash" | sudo tee $SHELL_SCRIPT_PATH > /dev/null
-echo "python3 /etc/smap/main.py \"\$@\"" | sudo tee -a $SHELL_SCRIPT_PATH > /dev/null
+echo "python3 /etc/smap/smap.py \"\$@\"" | sudo tee -a $SHELL_SCRIPT_PATH > /dev/null
 sudo chmod +x $SHELL_SCRIPT_PATH
 echo "smap installed successfully. You can now use 'smap' to run the program."
