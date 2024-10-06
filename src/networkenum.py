@@ -1,4 +1,7 @@
 import subprocess
+from rich import print
+from rich.layout import Layout
+
 
 class NmapHandler:
 
@@ -24,6 +27,17 @@ class NmapHandler:
             print(f"Error executing command: {e}")
 
     def get_help(self):
+        layout = Layout()
+        print(layout)
+        layout.split_column(
+        Layout(name="basic"),
+        Layout(name="aggressive"),
+        Layout(name="UDP"),
+        Layout(name="FIN"),
+        Layout(name="NULL"),
+)
+        print(layout)
+
         return f"""
 {self.BOLD}{self.CYAN}Available Commands:{self.RESET}
 
