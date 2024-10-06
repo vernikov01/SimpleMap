@@ -2,7 +2,6 @@ import sys
 import time
 import subprocess
 import colours as c
-from basics import run_basics
 from rich import print as rprint
 from rich.panel import Panel
 from rich.layout import Layout

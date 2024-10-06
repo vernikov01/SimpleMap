@@ -18,7 +18,7 @@ class NmapHandler:
         args = command.split()
         try:
             
-            result = subprocess.Popen(['nmap'] + args, capture_output=True, text=True)
+            result = subprocess.call(['nmap'] + args, text=True)
             if result.returncode != 0:
                 print(f"Error executing command make sure command is correct: {result.stderr}")
             else:

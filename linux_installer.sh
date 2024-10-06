@@ -10,6 +10,7 @@ fi
 SHELL_SCRIPT_PATH="/usr/local/bin/smap"
 sudo mkdir /etc/smap
 sudo cp src/main.py /etc/smap
+sudo cp src/helpmenu.py /etc/smap
 sudo cp src/basics.py /etc/smap
 sudo cp src/colours.py /etc/smap
 sudo cp src/networkenum.py /etc/smap

@@ -4,7 +4,6 @@ from networkenum import NmapHandler
 import colours as c
 import time 
 from helpmenu import helptable
-
 def run_basics():
     while True:
         nmap_handler = NmapHandler()
@@ -17,7 +16,7 @@ def run_basics():
             break
 
         elif command.lower() == 'help':
-            print(nmap_handler.get_help())
+            print(helptable())
         elif command.startswith("silentvuln "):
             target = command.split(" ", 1)[1]
             print("\nScanning... Please wait..\n")
