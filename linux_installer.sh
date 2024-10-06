@@ -9,12 +9,12 @@ fi
 
 SHELL_SCRIPT_PATH="/usr/local/bin/smap"
 sudo mkdir /etc/smap
-sudo cp src/smap.py /etc/smap
-sudo cp src/help.py /etc/smap
-sudo cp src/nmap.py /etc/smap
-sudo cp src/colours.py /etc/smap
-sudo cp src/commands.py /etc/smap
-sudo cp src/config.py /etc/smap
+sudo cp src2/smap.py /etc/smap
+sudo cp src2/help.py /etc/smap
+sudo cp src2/map.py /etc/smap
+sudo cp src2/colours.py /etc/smap
+sudo cp src2/commands.py /etc/smap
+sudo cp src2/config.py /etc/smap
 echo "#!/bin/bash" | sudo tee $SHELL_SCRIPT_PATH > /dev/null
 echo "python3 /etc/smap/main.py \"\$@\"" | sudo tee -a $SHELL_SCRIPT_PATH > /dev/null
 sudo chmod +x $SHELL_SCRIPT_PATH
