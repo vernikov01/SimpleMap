@@ -1,5 +1,5 @@
 import subprocess
-from rich import print
+from rich import print as rprint
 from rich.layout import Layout
 
 
@@ -28,7 +28,7 @@ class NmapHandler:
 
     def get_help(self):
         layout = Layout()
-        print(layout)
+        rprint(layout)
         layout.split_column(
         Layout(name="basic"),
         Layout(name="aggressive"),
@@ -36,7 +36,7 @@ class NmapHandler:
         Layout(name="FIN"),
         Layout(name="NULL"),
 )
-        print(layout)
+        rprint(layout)
 
         return f"""
 {self.BOLD}{self.CYAN}Available Commands:{self.RESET}
